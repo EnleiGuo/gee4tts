@@ -69,14 +69,14 @@ class Settings(BaseSettings):
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # 从 tts_config.json 加载火山引擎配置
+        # 从tts_config.json加载火山引擎配置
         self._load_volcano_config()
     
     def _load_volcano_config(self):
-        """从 tts_config.json 加载火山引擎配置"""
+        """从tts_config.json加载火山引擎配置"""
         import json
         try:
-            # 查找 config 文件
+            # 查找config文件
             config_paths = [
                 "./tts_config.json",
                 "../tts_config.json",
@@ -100,11 +100,11 @@ class Settings(BaseSettings):
                 self.VOLCANO_CLUSTER = config_data.get("cluster", "volcano_tts")
                 print(f"🔧 火山引擎配置已加载: APP_ID={self.VOLCANO_APP_ID[:8]}...")
             else:
-                print("⚠️ 未找到 tts_config.json 文件，使用环境变量配置")
+                print("⚠️ 未找到tts_config.json文件，使用环境变量配置")
                 
         except Exception as e:
             print(f"❌ 加载火山引擎配置失败: {e}")
-            print("📝 请确保 tts_config.json 文件格式正确")
+            print("📝 请确保tts_config.json文件格式正确")
     
     # 文件存储配置
     AUDIO_FILES_PATH: str = "./audio_files"

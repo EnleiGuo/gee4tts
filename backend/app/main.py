@@ -50,7 +50,7 @@ async def lifespan(app: FastAPI):
         logger.info("👋 TTS API服务关闭")
 
 
-# 创建 FastAPI 应用
+# 创建FastAPI应用
 app = FastAPI(
     title=settings.PROJECT_NAME,
     description="基于火山引擎的高质量语音合成服务API",
@@ -61,7 +61,7 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS 中间件配置
+# CORS中间件配置
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # 临时允许所有来源以解决跨域问题
